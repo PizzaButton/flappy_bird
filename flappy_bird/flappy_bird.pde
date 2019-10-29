@@ -61,7 +61,7 @@ void draw() {
  // flaplyd = new SoundFile (this, "flaplyd.mp3"); *LYD*
  
   //Game over når jorden rammes
-  if (b.y >= height - b.s/2) {
+  if (b.y >= height - 110 - b.s/2) {
     frameRate(0);
     textAlign(CENTER);
     textSize(40);
