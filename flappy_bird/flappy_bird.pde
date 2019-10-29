@@ -3,13 +3,22 @@
 
 Bird b;
 Pipe p;
-PImage img;
+PImage img1;
+PImage img2;
+float x1, x2, x3; 
+float y; 
 ArrayList<Pipe> Pipes = new ArrayList<Pipe>();
 
 void setup() {
   size(500, 800);
   noStroke();
-  img = loadImage("baggrund flappy.png");
+  img1 = loadImage("sprites/background-day.png");
+  img2 = loadImage("sprites/base.png");
+  frameRate(60);
+  y=height-112/2;
+  x1=0;
+  x2=x1 + 336;
+  x3=x2 + 336;
 
   b = new Bird();
   p = new Pipe();
@@ -17,7 +26,25 @@ void setup() {
 
 void draw() {
   imageMode(CENTER);
-  image(img, width/2, height/2);
+  image(img1, width/2, height/2);
+  img1.resize(0,900);
+  //image(img2,width/2,height-112/2);
+  
+  x1=x1-2;
+  x2=x2-2;
+  x3=x3-2;
+  image(img2,x1,y);
+  image(img2,x2,y);
+  image(img2,x3,y);
+  
+  if(x1 <= -336) {
+  x1 = x3 + 336;
+  } if (x2 <= -336) {
+  x2 = x1 + 336;
+  } if (x3 <= -336) {
+  x3 = x2 + 336;
+  }
+  
   
   b.render();
   b.update();
@@ -34,7 +61,7 @@ void draw() {
  // flaplyd = new SoundFile (this, "flaplyd.mp3"); *LYD*
  
   //Game over når jorden rammes
-  if (b.y >= height - b.s/2) {
+  if (b.y >= height - 110 - b.s/2) {
     frameRate(0);
     textAlign(CENTER);
     textSize(40);
