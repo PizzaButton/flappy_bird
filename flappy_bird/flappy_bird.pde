@@ -1,4 +1,4 @@
- // import processing.sound.*; *LYD*
+// import processing.sound.*; *LYD*
 // SoundFile flaplyd; *LYD*
 
 Bird b;
@@ -26,31 +26,31 @@ void setup() {
   kremlin = loadFont("data/Kremlin-48.vlw");
   b = new Bird();
   p = new Pipe();
-
-
 }
 
 void draw() {
   imageMode(CENTER);
   image(img1, width/2, height/2);
-  img1.resize(0,900);
+  img1.resize(0, 900);
   //image(img2,width/2,height-112/2);
-  
+
   x1=x1-2;
   x2=x2-2;
   x3=x3-2;
-  image(img2,x1,y);
-  image(img2,x2,y);
-  image(img2,x3,y);
-  
-  if(x1 <= -336) {
-  x1 = x3 + 336;
-  } if (x2 <= -336) {
-  x2 = x1 + 336;
-  } if (x3 <= -336) {
-  x3 = x2 + 336;
+  image(img2, x1, y);
+  image(img2, x2, y);
+  image(img2, x3, y);
+
+  if (x1 <= -336) {
+    x1 = x3 + 336;
+  } 
+  if (x2 <= -336) {
+    x2 = x1 + 336;
+  } 
+  if (x3 <= -336) {
+    x3 = x2 + 336;
   }
-  
+
   b.render();
   b.update();
 

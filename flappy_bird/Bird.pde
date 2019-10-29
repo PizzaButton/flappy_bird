@@ -3,7 +3,7 @@
   float dy, ddy; // Fuglens hastighed og acceleration
   float s; // Fuglens størrelse
   boolean ready2flap;
-  PImage fugl;
+  PImage fugld, fuglm, fuglu;
   float rot;
 
   // Constructor til nye fugle
@@ -14,7 +14,9 @@
     ddy = 0.5;
     s = 50;
     ready2flap = true;
-    fugl = loadImage("sprites/redbird-downflap.png");
+    fugld = loadImage("sprites/redbird-downflap.png");
+    fuglm = loadImage("sprites/redbird-midflap.png");
+    fuglu = loadImage("sprites/redbird-upflap.png");
     rot = 0;
   }
 
@@ -24,8 +26,8 @@
     translate(x, y);
     imageMode(CENTER);
     rotate(radians(rot));
-    image(fugl, 0, 0);
-    fugl.resize(45, 35);
+    image(fuglm, 0, 0);
+    fuglm.resize(45, 35);
     rotate(TWO_PI - radians(rot));
     translate(-x, -y);
   }
@@ -40,7 +42,7 @@
       dy = 0;
     }
     
-    rot = rot + map(dy , -200, 200, -45, 45);
+    rot = rot + map(dy , -200, 200, -25, 25);
   }
 
   // Bask med vingerne
