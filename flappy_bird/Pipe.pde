@@ -15,7 +15,6 @@ class Pipe {
     h = 200;
     ned = loadImage("sprites/pipe-green-down.png");
     op = loadImage("sprites/pipe-green-up.png");
-
   }
 
 
@@ -31,7 +30,7 @@ class Pipe {
 
   // Opdater rørets position
   void update() {
-      x = x - dx;
+    x = x - dx;
   }
 
   // Metode, der tjekker om røret er
@@ -39,16 +38,10 @@ class Pipe {
   // et fugle-objekt og metoden skal returnere
   // true eller false alt efter om fuglen er 
   // ramt eller ej.
-  boolean hit(Bird b) {
-    if (x >= 100 && x <= 200) {
-      if (b.y <= y || b.y >= y + h) {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return false;
-    }
+  boolean hit(Bird b) {  
+    if ((b.y <= y || b.y >= y + h) && (x - w/2 <= b.x + b.s/2)) {
+      return true;
+    } else return false;
   }
 
   // Metode, der returnerer true, når røret er uden

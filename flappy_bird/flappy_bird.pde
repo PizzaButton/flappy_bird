@@ -80,9 +80,6 @@ void draw() {
     text("GAME OVER", width/2, height/2);
   }
 
-  if (p.hit(b) == true) {
-    rect(400, 400, width/2, height/2);
-  }
 
   textAlign(CENTER);
   textSize(48);
