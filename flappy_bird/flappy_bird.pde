@@ -5,11 +5,13 @@ Bird b;
 Pipe p;
 PImage img1;
 PImage img2;
-float x1, x2, x3; 
+PImage gameover;
+float x1, x2, x3, dx; 
 float y; 
 ArrayList<Pipe> Pipes = new ArrayList<Pipe>();
 int score = 0;
 PFont kremlin;
+boolean gameOver;
 // import processing.sound.*; *LYD*
 // SoundFile flaplyd; *LYD*
 
@@ -23,7 +25,10 @@ void setup() {
   x1=0;
   x2=x1 + 336;
   x3=x2 + 336;
+  dx = -2;
   kremlin = loadFont("data/Kremlin-48.vlw");
+  restart = loadImage("sprites/restart.PNG");
+  restart_mork = loadImage("sprites/restart_mork.PNG");
   b = new Bird();
   p = new Pipe();
 }
@@ -34,9 +39,9 @@ void draw() {
   img1.resize(0, 900);
   //image(img2,width/2,height-112/2);
 
-  x1=x1-2;
-  x2=x2-2;
-  x3=x3-2;
+  x1=x1 + dx;
+  x2=x2 + dx;
+  x3=x3 + dx;
   image(img2, x1, y);
   image(img2, x2, y);
   image(img2, x3, y);
@@ -49,6 +54,9 @@ void draw() {
   } 
   if (x3 <= -336) {
     x3 = x2 + 336;
+  }
+  if(gameOver==true){
+  dx=0;
   }
 
   b.render();
@@ -74,12 +82,12 @@ void draw() {
 
   //Game over når jorden rammes
   if (b.y >= height - 110 - b.s/2 || p.hit(b) == true) {
-    frameRate(0);
     textAlign(CENTER);
     textSize(50);
     text("GAME OVER", width/2, height/2);
+    gameOver=true;
   }
-
+  menu();
 
   textAlign(CENTER);
   textSize(48);
