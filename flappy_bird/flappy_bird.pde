@@ -87,6 +87,8 @@ void draw() {
     textSize(50);
     image(gameover,width/2,height/2.5);
     gameOver=true;
+    b.dy=0;
+    b.ddy=0;
   }
 
   menu();

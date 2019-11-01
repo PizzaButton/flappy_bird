@@ -5,6 +5,7 @@ void menu () {
     image(restart, width/2, height/2);
     if (mouseX>=width/2-85 && mouseX<=width/2+85) {
       if (mouseY >= height/2-30 && mouseY<=height/2+30) {
+        cursor(HAND);
         image(restart_mork, width/2, height/2);
         if (mousePressed==true) {
           setup();
@@ -14,7 +15,7 @@ void menu () {
           score=0;
            
         }
-      }
-    }
+      } else cursor(ARROW);
+    } else cursor(ARROW);
   }
 }
