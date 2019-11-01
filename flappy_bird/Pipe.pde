@@ -38,8 +38,14 @@ class Pipe {
   // et fugle-objekt og metoden skal returnere
   // true eller false alt efter om fuglen er 
   // ramt eller ej.
-  boolean hit(Bird b) {  
-    if ((b.y <= y || b.y >= y + h) && (x - w/2 <= b.x + b.s/2)) {
+  boolean hity() {  
+    if (b.y <= y || b.y >= y + h) {
+      return true;
+    } else return false;
+  }
+
+  boolean hitx() {
+    if (x - w/2 <= b.x + b.s/2) {
       return true;
     } else return false;
   }

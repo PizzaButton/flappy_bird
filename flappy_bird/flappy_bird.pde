@@ -73,11 +73,20 @@ void draw() {
   // flaplyd = new SoundFile (this, "flaplyd.mp3"); *LYD*
 
   //Game over når jorden rammes
-  if (b.y >= height - 110 - b.s/2 || p.hit(b) == true) {
+  if (b.y >= height - 110 - b.s/2) {
     frameRate(0);
     textAlign(CENTER);
     textSize(50);
     text("GAME OVER", width/2, height/2);
+  }
+  if (p.hity() == true) {
+    fill(255);
+    rect(400, 400, width/2, height/2);
+  }
+
+  if (p.hitx() == true) {
+    fill(140);
+    rect(400, 400, 0, height/2);
   }
 
 
