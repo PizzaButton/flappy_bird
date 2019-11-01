@@ -20,6 +20,7 @@ void setup() {
   noStroke();
   img1 = loadImage("sprites/background-day.png");
   img2 = loadImage("sprites/base.png");
+  gameover=loadImage("sprites/gameover.png");
   frameRate(60);
   y=height-112/2;
   x1=0;
@@ -66,7 +67,7 @@ void draw() {
     p.render();
     p.update();
   }
-
+  if(gameOver==false){
   if (frameCount % 175 == 0) {
     Pipes.add(new Pipe());
     if (frameCount % 175 == 0) {
@@ -76,16 +77,15 @@ void draw() {
       score = 0;
     }
   }
-
+  }
   // flaplyd = new SoundFile (this, "flaplyd.mp3"); *LYD*
   // flaplyd = new SoundFile (this, "flaplyd.mp3"); *LYD*
 
   //Game over når jorden rammes
   if (b.y >= height - 110 - b.s/2) {
-    frameRate(0);
     textAlign(CENTER);
     textSize(50);
-    text("GAME OVER", width/2, height/2);
+    image(gameover,width/2,height/2.5);
     gameOver=true;
   }
 
