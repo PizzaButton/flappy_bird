@@ -31,7 +31,11 @@ class Pipe {
   // Opdater rørets position
   void update() {
     x = x - dx;
+    if(gameOver==true){
+    dx=0;
+    }
   }
+  
 
   // Metode, der tjekker om røret er
   // blevet ramt af en fugl. Input skal være
