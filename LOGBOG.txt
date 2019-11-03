@@ -13,3 +13,8 @@ Bevægende rør der genererer automatisk - Tummas
 Lander på den tegnede jord og ikke bunden af canvas - Caroline
 Rotation af fuglen i forhold til den vej den accelererer - Tummas
 Vingelyd - Dyring
+
+:::::::::::::::::::::::::::::::::::::
+
+Link til logbog på google drev:
+https://docs.google.com/document/d/1yp4PnYm0UXx4YwtzkOfdC8BMAUazTTWfXBBzAvGtcqs/edit?usp=sharing
